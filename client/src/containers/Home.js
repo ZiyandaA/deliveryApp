@@ -67,7 +67,12 @@ const BannerComponent = () => (
     }}>
     <img alt="banner" src="https://images.unsplash.com/photo-1527577891194-fd38429946bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52610a594dfea47fd2955e97b99a51b1&auto=format&fit=crop&w=800&q=60"  style={{ height: '100%', width: '100%', position: 'absolute', top: 0, left: 0, objectFit: 'cover'}}/>
     <div style={{ backgroundColor: '#2C2B2B90', height: '100%', width: '100%', zIndex: 3, positon: 'absolute', top: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <p style={{ color: 'white', fontSize: '24px', fontWeight: '600', textAlign: 'center', width: '60%'  }}> Delivery that is fast and secure. We believe in enabling a future where delivery is almost as quick as you thinking about it </p>
+        <p className="home-image" style={{ color: 'white', fontSize: '24px', fontWeight: '600', textAlign: 'center', width: '60%'  }}>
+            <img
+                src="/static/media/logo2.8e237bde.jpg"
+            />
+             <p className="my-text-center my-text-white">The Messenger Pricing System</p>
+        </p>
     </div>
     </div>
 )
@@ -89,7 +94,7 @@ const SecondBannerComponent = ({ history }) => (
         }}
     >
     <div style={{ display: 'flex', width: '50%', height: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-    <p style={{ color: 'black', textAlign: 'center', width: '50%', fontSize: '18px', fontWeight: 'bold', fontFamily: 'Playfair Display' }}> Hello there welcome to delivery you can set up a ton of shit of here </p>
+    <p style={{ color: 'black', textAlign: 'center', width: '50%', fontSize: '18px', fontWeight: 'bold', fontFamily: 'Playfair Display' }}> Delivery that is fast and secure. We believe in enabling a future where delivery is almost as quick as you thinking about it </p>
     </div>
     <div style={{ height: '100%', width: '50%', position: 'relative' }}>
     <img  alt="banner" src="https://images.unsplash.com/photo-1522074534099-45b66be3f193?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1120af654449ab8c8e2247989f0bff2f&auto=format&fit=crop&w=800&q=60" style={{ objectFit: 'cover', width: '100%',  position: 'absolute', top: 0, height: '100%' }}/>
@@ -120,8 +125,8 @@ const FooterComponent = () => (
  */
 const HeaderComponent = () => (
     <div style={{  height: '60px', paddingLeft: '20px', paddingTop: '15px',  width: '100%', backgroundColor: '#003459'}}>
-        <img alt="logo" src={logo} style={{ float: 'left', height: '40px', width: '40px', position: 'relative', top: '-10px'  }}/>
-        <p style={{ color: 'white', textAlign: 'center',  }}> Delivery.app </p>
+        <img alt="logo" src={logo} style={{ float: 'left', height: '70px', width: '100px', position: 'relative', top: '-10px'  }}/>
+        <p style={{ color: 'white', textAlign: 'center',  }}></p>
     </div>
 )
 
