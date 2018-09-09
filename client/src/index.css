@@ -4,3 +4,9 @@ body {
   font-family: sans-serif;
   background: #024fa2
 }
+
+.hoverable-button:hover {
+  cursor: pointer;
+  position: relative;
+  top: -5px;
+}

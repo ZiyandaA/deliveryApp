@@ -4,7 +4,9 @@ import {
   Route,
 } from 'react-router-dom';
 
-import './App.css';
+// import './App.css';
+import './styles/Auth.css';
+import './styles/orders.css';
 
 import store from './store';
 import { loginAction } from './store/modules/auth'
@@ -39,7 +41,7 @@ class App extends Component {
 
   render() {
     return (
-      <div  style={{ maxWidth: 600, margin: '0 auto', padding: 15,}}>
+      <div>
         <Header />
         <Route exact path="/orders" component={OrdersComponent} />
         <Route exact path="/orders/:orderId" component={OrderComponent} />
