@@ -40,7 +40,7 @@ class Register extends Component {
     */
     handleSubmit(authMode) {
         console.log(authMode);
-        let url = "http://localhost:3001/users/";
+        let url = "http://localhost:3000/users/";
         if(authMode === "login") {
             url += "signin"
         }else if(authMode === "register") {
@@ -74,7 +74,8 @@ class Register extends Component {
         }
 
         if(this.props.loggedIn) {
-            const { referrer } =this.props.location.state;
+            console.log(this.props.location);
+            const  referrer  = (this.props.location.state) ? this.props.location.state.referrer : false;
             const from = referrer ? referrer : '/';
             return <Redirect to={from} />
         }

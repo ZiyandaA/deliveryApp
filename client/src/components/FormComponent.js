@@ -10,6 +10,8 @@ import {
 
 import moment from 'moment'
 
+import '../styles/index.css';
+
 const mainBGColor = '#024fa2';
 
 const StoreLocation = ({background, name, address, onSelect, selected}) => {
@@ -32,6 +34,7 @@ const StoreLocation = ({background, name, address, onSelect, selected}) => {
 
         >{name}</div>
         <div
+            className="location-img"
             style={{
                 backgroundImage: `url(${background})`,
                 backgroundSize: 'cover',
@@ -49,23 +52,11 @@ const FormItem = ({name, onChangeOption, onChange, label, index, options =[], fo
     //console.log(formData[name], `formData.${name}`)
     const { quantity, type } = formData[name];
     // console.log(quantity);
-    return (<div>
-        <div
-            style={{
-                display: 'inline-block',
-                width: '49%',
-                padding: 5,
-                textAlign: 'right',
-                boxSizing: 'border-box',
-                marginRight: 6,
-            }}
-        >{label}</div>
+    return (<tr>
+        <th scope="row">
+        {label}</th>
+        <td>
         <select
-            style={{
-                border: '1px solid black',
-                marginRight: 8,
-                maxWidth: 138,
-            }}
             value={type}
             name={name}
             onChange={onChangeOption}
@@ -74,19 +65,17 @@ const FormItem = ({name, onChangeOption, onChange, label, index, options =[], fo
             {options.map(({label, value}, i) => <option value={value} key={i}>{label}</option>)}
 
         </select>
+        </td>
+        <td>
         <input
+            className="my-form-control quantity"
             type={'number'}
-            style={{
-                border: '1px solid black',
-                float: 'right',
-                marginTop: 7,
-            }}
             name={name}
             onChange={onChange}
             value={quantity}
-            // defaultValue={quantity}
         />
-    </div>)
+        </td>
+    </tr>)
 }
 
 const formItemProps = [
@@ -220,7 +209,7 @@ class FormComponent extends Component {
             } else {
                 this.addOrderInfoToState();
             }
-           
+
         }
     }
 
@@ -362,191 +351,156 @@ class FormComponent extends Component {
         }
 
         return(
-                <form
-                    onSubmit={this.submit}
-                    style={{
-                        background: 'white', padding: 15,marginTop: 10
-                    }}
-                >
-                    <img src='/logo2.jpg' style={{width: '100%'}}/>
-                    <div>
-                        <div
-                            style={{
-                                textAlign: 'center',
-                                padding: '5px 0',
-                                background: mainBGColor,
-                                color: 'white',
-                                marginBottom: 5,
-                            }}
-                        >
-                            Select Service
+            <div id="middleContainer" className="primary-bg-color">
+                <div className="first-container">
+                    <h4 className="my-text-white my-text-center">Place an order</h4>
+                    <div className="middleBox">
+                        <div className="secondary-bg-color rightSide the-right">
+                            <h1 className="my-text-center my-text-white logo-text">ARC</h1>
+                            <p className="my-text-center my-text-white">The Messenger Pricing System</p>
                         </div>
-                        <div style={{
-                            textAlign: 'center',
-                            paddingBottom: 15,
-                        }}>
-                        <select
-                            style={{
-                                display: 'inline-block',
-                            }}
-                            name={'service'}
-                            value={service}
-                            onChange={this.handleChange}
-                            required
-                        >
-                            <option value="delivery">Delivery</option>
-                            <option value="pick-up">Pick Up</option>
-                        </select>
+                        <div className="white-bg-color left-box">
+                            <div className="left-box-inner">
+                                <div className="leftSide">
+                                    <h5 className="text-center fill-form">Fill form below</h5>
+                                    <div className="scrollable-content">
+                                        <form
+                                            onSubmit={this.submit}
+                                            style={{
+                                                background: 'white', padding: 15,marginTop: 10
+                                            }}
+                                        >
+                                            <div>
+                                                <div className="my-form-group select">
+                                                    <label htmlFor="emailInput">Select Service:</label>
+                                                    <select
+                                                        name={'service'}
+                                                        value={service}
+                                                        onChange={this.handleChange}
+                                                        required
+                                                    >
+                                                        <option value="delivery">Delivery</option>
+                                                        <option value="pick-up">Pick Up</option>
+                                                    </select>
+                                                </div>
+                                                <div className="my-form-group">
+                                                    <label htmlFor="customerNameInput">Customer Name:</label>
+                                                    <input
+                                                        className="my-form-control"
+                                                        type="text"
+                                                        value={customer_name}
+                                                        size='50'
+                                                        name='customer_name'
+                                                        onChange={this.handleChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            <div>
+                                            <div className="my-form-group">
+                                                <label>Select Location:</label>
+                                                <div className="store-location">
+                                                    <StoreLocation
+                                                        name={'Manhattan'}
+                                                        address={'50 West 17th Street New York 10011'}
+                                                        background={'http://www.yellowmaps.com/maps/img/US/political/Minnesota-political-map-796.jpg'}
+                                                        onSelect={this.onLocationChange}
+                                                        selected={our_address === '50 West 17th Street New York 10011'}
+                                                    />
+                                                    <StoreLocation
+                                                        name={'Brooklyn'}
+                                                        address={'370 19th Street Brookly NY 11215'}
+                                                        background={'http://www.yellowmaps.com/maps/img/US/political/Minnesota-political-map-796.jpg'}
+                                                        onSelect={this.onLocationChange}
+                                                        selected={our_address === '370 19th Street Brookly NY 11215'}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="my-form-group">
+                                                    <label htmlFor="customerNameInput">Customer Address: {customer_address}</label>
+                                                    <input
+                                                        className="my-form-control"
+                                                        id="customerAddressInput"
+                                                        type="text"
+                                                        value={customer_address}
+                                                        name='customer_address'
+                                                        onChange={this.handleChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div className="my-form-group">
+                                                <h5>Select Packages</h5>
+                                                <div className="my-responsive-table">
+                                                    <table className="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Items</th>
+                                                                <th scope="col">Quantity</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {formItemProps.map(({label, name, options}, i) => {
+                                                                return <FormItem
+                                                                    key={i}
+                                                                    label={label}
+                                                                    name={name}
+                                                                    onChange={this.handleChangeQuantity}
+                                                                    onChangeOption={this.handleChangeOption}
+                                                                    options={options}
+                                                                    index={i}
+                                                                    formData={this.state}
+                                                                />
+                                                            })}
+                                                            <tr>
+                                                                <th scope="row">Order Date</th>
+                                                                <td colSpan="2">
+                                                                    <input
+                                                                        type="date"
+                                                                        name="date_time"
+                                                                        className="my-form-control"
+                                                                        value={date_time}
+                                                                        onChange={this.handleChange}
+                                                                        min={minDateStr}
+                                                                        required
+                                                                    />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">Notes</th>
+                                                                <td colSpan="2">
+                                                                    <textarea
+                                                                        name="notes"
+                                                                        value={notes}
+                                                                        className="my-form-control"
+                                                                        onChange={this.handleChange}
+                                                                    />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div className="form-button">
+                                                <button type="submit" className="my-button text-center">
+                                                    {mode === 'edit' ? 'Update': 'Submit'}
+                                                </button>
+                                                {
+                                                    isLoadingDetail && <p>Loading...</p>
+                                                }
+                                            </div>
+                                        </form>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div
-                            style={{
-                                textAlign: 'center',
-                                padding: '5px 0',
-                                background: mainBGColor,
-                                color: 'white',
-                                marginBottom: 5,
-                            }}
-                        >
-                            Customer Name
-                        </div>
-                        <p>
-                            <input
-                                type="text"
-                                value={customer_name}
-                                size='50'
-                                name='customer_name'
-                                onChange={this.handleChange}
-                                required
-                            />
-                        </p>
-                        <div
-                            style={{
-                                textAlign: 'center',
-                                padding: '5px 0',
-                                background: mainBGColor,
-                                color: 'white',
-                                marginBottom: 5,
-                            }}
-                        >
-                            Select Location
-                        </div>
-
-                        <div style={{
-                            padding: '15px 0'
-                        }}>
-                        <div
-                         style={{
-                            paddingBottom: 15,
-                        }}
-                        >
-                            <StoreLocation
-                                name={'Manhattan'}
-                                address={'50 West 17th Street New York 10011'}
-                                background={'http://www.yellowmaps.com/maps/img/US/political/Minnesota-political-map-796.jpg'}
-                                onSelect={this.onLocationChange}
-                                selected={our_address === '50 West 17th Street New York 10011'}
-                            />
-                            <StoreLocation
-                                name={'Brooklyn'}
-                                address={'370 19th Street Brookly NY 11215'}
-                                background={'http://www.yellowmaps.com/maps/img/US/political/Minnesota-political-map-796.jpg'}
-                                onSelect={this.onLocationChange}
-                                selected={our_address === '370 19th Street Brookly NY 11215'}
-                            />
-
-                        </div>
-                        <div>
-                            <div>Customer Address {customer_address}</div>
-                            <input
-                                style={{
-                                    width: 300.
-                                }}
-                                type="text"
-                                value={customer_address}
-                                name='customer_address'
-                                onChange={this.handleChange}
-                                required
-                            />
-                        </div>
-                        </div>
-                        <div
-                            style={{
-                                textAlign: 'center',
-                                padding: '5px 0',
-                                background: mainBGColor,
-                                color: 'white',
-                                marginBottom: 5,
-                            }}
-                        >
-                            Select Packages
-                        </div>
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                textAlign: 'right',
-                                textTransform: 'uppercase',
-                                padding: '3px 5px',
-                                marginRight: 6,
-                                marginLeft: 281,
-                                boxSizing: 'border-box'
-                            }}
-                        >
-                            Items
-                        </div>
-
-                        <div
-                            style={{
-                                display: 'inline-block',
-                                marginLeft: 91,
-                                textTransform: 'uppercase',
-                                padding: '3px 5px',
-                                boxSizing: 'border-box'
-                            }}
-                        >
-                            Quantity
-                        </div>
-
                     </div>
-                    {formItemProps.map(({label, name, options}, i) => {
-                        return <FormItem
-                            key={i}
-                            label={label}
-                            name={name}
-                            onChange={this.handleChangeQuantity}
-                            onChangeOption={this.handleChangeOption}
-                            options={options}
-                            index={i}
-                            formData={this.state}
-                        />
-                    })}
-
-
-                    <input
-                        type="date"
-                        name="date_time"
-                        value={date_time}
-                        onChange={this.handleChange}
-                        min={minDateStr}
-                        required
-                    />
-
-                    <div>
-                        <div>Notes</div>
-                        <textarea name="notes" value={notes} onChange={this.handleChange}  />
-                    </div>
-
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center'
-                    }}>
-                        <button type="submit" style={{fontSize: 20}}>
-                            {mode === 'edit' ? 'Update': 'Submit'}
-                        </button>
-                        {
-                            isLoadingDetail && <p>Loading...</p>
-                        }
-                    </div>
-                </form>
+                </div>
+            </div>
         )
     }
 }

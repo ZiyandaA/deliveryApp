@@ -25,9 +25,11 @@ router.get('/:id', async (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const {name, password} = req.body;
+  console.log(req.body);
   //console.log(name, password, adress, roleID);
   models.User.findOne({ name })
     .then(user => {
+      console.log(user);
       if(user) {
         return res.status(409).send({ 
           status: "fail", 
@@ -89,7 +91,7 @@ router.post('/logout', (req, res, next) => {
     })
   }
   else {
-    next();
+    res.status(200).json({})
   }
 })
 

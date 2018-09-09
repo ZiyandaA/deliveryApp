@@ -12,6 +12,7 @@ const AsyncAction = (
             return response.data;
         })
         .catch((err) => {
+            console.log('error:', err);
             console.log(err.response.data);
             dispatch({
                 type: `${type}_REJECTED`,

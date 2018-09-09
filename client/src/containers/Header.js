@@ -15,8 +15,6 @@ class Header extends Component {
     }
 
     logOut() {
-        console.log(this.props.state)
-        console.log(this.props.history.replace)
         axios.post("/users/logout")
             .then(data => {
                 this.props.changeLoginStatus();
@@ -27,15 +25,15 @@ class Header extends Component {
     }
     renderAuthButtons() {
         if (this.props.loggedIn) {
-            return <button onClick={this.logOut} style={{float: 'right', fontSize:'15px'}}>logout</button>
+            return <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
         }
-        else {
-            return <div><Link to="/login">login</Link>, <Link to="/register">register</Link></div>
-        }
+        // else {
+        //     return <div><Link to="/login">login</Link>, <Link to="/register">register</Link></div>
+        // }
     }
     render() {
         return(
-            <div>
+            <div className="logout">
 
                 {this.renderAuthButtons()}
             </div>
