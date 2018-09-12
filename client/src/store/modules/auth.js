@@ -9,6 +9,7 @@ export function loginAction() {
 export function authReducer(state={
     loggedIn: false
 }, action) {
+    console.log(state,action);
     switch (action.type) {
         case LOGIN_CHANGE: {
             return {

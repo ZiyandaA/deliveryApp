@@ -51,15 +51,14 @@ a {
 
 .authenticationBox {
   margin: auto;
-  border-radius: 10px;
+ 
   box-shadow: 0px 2px 10px #383838;
   width: 80%;
 }
 
 @media (min-width: 320px) and (max-width: 720px) {
   .authenticationBox {
-    margin: auto;
-    border-radius: 10px;
+    
     box-shadow: 0px 2px 10px #383838;
 
   }

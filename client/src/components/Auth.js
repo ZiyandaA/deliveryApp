@@ -51,7 +51,7 @@ class Signin extends Component {
                                     </form>
                                     <br />
                                     {mode && mode === 'login' &&
-                                    <Link to="register" className="my-text-center" href="#">Have an account ? Sign up</Link>
+                                    <Link to="register" className="my-text-center" href="#"> Dont have an account ? Sign up</Link>
                                     }
                                     {mode && mode === 'register' &&
                                     <Link to="login" className="my-text-center" href="#">Have an account ? Sign in</Link>

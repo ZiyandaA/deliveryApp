@@ -21,21 +21,21 @@ class OrdersComponent extends Component {
         }
 
         return (
-            <div id="middleContainer" class="primary-bg-color row align-items-center">
-    <div class="col-md-12 container">
-      <h4 class="text-white text-center">List of Orders</h4>
-      <br />
-        <div class="row middleBox">
-          <div class="col-md-12 col-sm-12 col-xs-12 d-block white-bg-color">
-            <div class="row align-items-center">
-              <div class="col-md-12 container leftSide">
-                <div class="scrollable-content">
-                    <h5 class="text-center">Orders</h5>
-                    <a href="/" class="float-right"><strong>Create new order</strong></a>
-                    <div class="form-group">
-                        <div class="table-responsive">
-                <table class="table">
-                    <thead>
+                        <div id="middleContainer" class="primary-bg-color row align-items-center">
+                <div class="col-md-12 container">
+                <h4 class="text-white text-center">List of Orders</h4>
+                <br />
+                    <div class="row middleBox">
+                    <div class="col-md-12 col-sm-12 col-xs-12 d-block white-bg-color">
+                        <div class="row align-items-center">
+                        <div class="col-md-12 container leftSide">
+                            <div class="scrollable-content">
+                                <h5 class="text-center">Orders</h5>
+                                <a href="/" class="float-right"><strong>Create new order</strong></a>
+                                <div class="form-group">
+                                    <div class="table-responsive">
+                            <table class="table">
+                                <thead>
                         <tr>
                             <th>#</th>
                             <th scope="col">Order ID</th>

@@ -37,8 +37,12 @@ class App extends Component {
         .then(data => {
           store.dispatch(loginAction());
         })
-  }
+        .catch(error => {
+          console.log(error.response)
+      });
+  };
 
+  
   render() {
     return (
       <div>

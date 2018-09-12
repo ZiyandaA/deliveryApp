@@ -25,7 +25,8 @@ class Header extends Component {
     }
     renderAuthButtons() {
         if (this.props.loggedIn) {
-            return <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
+           
+      return <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
         }
         // else {
         //     return <div><Link to="/login">login</Link>, <Link to="/register">register</Link></div>

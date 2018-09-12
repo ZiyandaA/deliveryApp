@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import{withRouter} from 'react-router'
 import {
     getOrderAction,
+    getOrdersAction,
     deleteOrderAction,
     confirmOrderAction
 } from '../store/modules/orders';
@@ -48,11 +49,17 @@ class OrderComponent extends Component {
 
     handleDeleteOrder = async () => {
         const {
+            history: { push },
             match: { params },
         } = this.props;
-        if (window.confirm('Are you sure you want to delete this order?')) {
+        if (window.confirm('Are you sure you want to delete this order?')) 
+        {
             await this.props.deleteOrder(params.orderId);
+            // push(`/orders`);
+           
         }
+        this.props.getOrders();
+         push(`/orders`);
     };
 
     displayOrderInfo() {
@@ -220,9 +227,12 @@ function mapDispatchToProps(dispatch) {
         getOrder: (id) => {
             return dispatch(getOrderAction(id));
         },
+        getOrders: ()=>{
+            dispatch(getOrdersAction())
+        },
         deleteOrder: id => dispatch(deleteOrderAction(id)),
         confirmOrder: (email, id) => dispatch(confirmOrderAction(email, id))
     }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrderComponent);
+// export default connect(mapStateToProps, mapDispatchToProps)(OrdersComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderComponent));

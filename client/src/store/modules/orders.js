@@ -57,6 +57,7 @@ export const confirmOrderAction = (email, id) => asyncAction(
     err => alert(err.message)
 );
 
+
 export function ordersReducer(state= {
     detail: {},
     list: [],

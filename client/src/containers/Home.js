@@ -33,7 +33,7 @@ class Home extends Component {
         if(this.props.loggedIn) {
         return(
             <div>
-                <div className="home" style={{fontSize: 30, color: 'white'}}>Home</div>
+                {/* <div className="home" style={{fontSize: 30, color: 'white'}}>Home</div> */}
                 <FormComponent {...formProps}/>
                 <p>
                 </p>
@@ -71,7 +71,7 @@ const BannerComponent = () => (
             <img
                 src="/static/media/logo2.8e237bde.jpg"
             />
-             <p className="my-text-center my-text-white">The Messenger Pricing System</p>
+             <span className="my-text-center my-text-white"> Messenger Pricing System</span>
         </p>
     </div>
     </div>
@@ -94,7 +94,7 @@ const SecondBannerComponent = ({ history }) => (
         }}
     >
     <div style={{ display: 'flex', width: '50%', height: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-    <p style={{ color: 'black', textAlign: 'center', width: '50%', fontSize: '18px', fontWeight: 'bold', fontFamily: 'Playfair Display' }}> Delivery that is fast and secure. We believe in enabling a future where delivery is almost as quick as you thinking about it </p>
+    <p style={{ color: 'black', textAlign: 'center', width: '50%', fontSize: '18px', fontWeight: 'bold', fontFamily: 'Playfair Display' }}> We provide a delivery Price quote that is fast and secure. We believe in enabling a future where delivery is almost as quick as you thinking about it, and it all starts with a quote. Log in to get yours. </p>
     </div>
     <div style={{ height: '100%', width: '50%', position: 'relative' }}>
     <img  alt="banner" src="https://images.unsplash.com/photo-1522074534099-45b66be3f193?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1120af654449ab8c8e2247989f0bff2f&auto=format&fit=crop&w=800&q=60" style={{ objectFit: 'cover', width: '100%',  position: 'absolute', top: 0, height: '100%' }}/>
@@ -115,7 +115,7 @@ const SecondBannerComponent = ({ history }) => (
  */
 const FooterComponent = () => (
     <div style={{ height: '60px', width: '100%', backgroundColor: '#4D5656', paddingTop: '10px'}}>
-        <p style={{ color: 'black', textAlign: 'center', color: 'white', fontFamily: 'Playfair Display' }}> Designed With Love by Zanga </p>
+        <p style={{ color: 'black', textAlign: 'center', color: 'white', fontFamily: 'Playfair Display' }}> Designed by Ziyanda Ayd  </p>
     </div>
 )
 /**

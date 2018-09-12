@@ -7,13 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/check", (req, res, next) => {
-  console.log('IM HERE--')
+//   console.log('IM HERE--')
 
   try {
     if (req.session.user)
     res.send(req.session.user);
     else 
-    res.status(401).send({message: 'you are not authorized'})
+    res.status(204).send({message: 'you are not authorized'})
   }
   catch (err) {
     console.log(err, 'this is erro');
