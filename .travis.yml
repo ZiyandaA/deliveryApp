@@ -3,5 +3,7 @@ node_js: node
 cache:
   directories:
     - node_modules
+script:
+- cd api; npm test
 env:
   - CI=true
