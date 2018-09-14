@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import toast from 'toastr';
 import {connect} from 'react-redux';
-import { loginAction } from '../store/modules/auth'
-import { withRouter } from 'react-router-dom';
-import {
-    Link,
-  } from 'react-router-dom';
-
+import { logoutAction } from '../store/modules/auth'
+import { withRouter, Link } from 'react-router-dom';
 
 class Header extends Component {
     constructor(props) {
@@ -15,28 +11,41 @@ class Header extends Component {
     }
 
     logOut() {
-        axios.post("/users/logout")
-            .then(data => {
-                this.props.changeLoginStatus();
-                this.props.history.push("/login");
+        // axios.post("/users/logout")
+        //     .then(data => {
+        //         this.props.changeLoginStatus();
+        //         this.props.history.push("/login");
 
-                console.log(data)
-            })
+        //         console.log(data)
+        //     })
+        this.props.logoutUser();
+        toast.success('Logout successful');
     }
     renderAuthButtons() {
-        if (this.props.loggedIn) {
-           
-      return <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
-        }
+        return (
+            <div>
+                <button onClick={() => this.props.history.push('/')} className="logout-btn my-button" style={{float: 'left', fontSize:'15px'}}>Welcome</button>
+                <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
+            </div>
+        );
+        // if (this.props.loggedIn) {
+        //     return (
+        //         <div>
+        //             <button onClick={() => this.props.history.push('/')} className="logout-btn my-button" style={{float: 'left', fontSize:'15px'}}>Home</button>
+        //             <button onClick={this.logOut} className="logout-btn my-button" style={{float: 'right', fontSize:'15px'}}>logout</button>
+        //         </div>
+        //     );
+        // }
         // else {
         //     return <div><Link to="/login">login</Link>, <Link to="/register">register</Link></div>
         // }
     }
     render() {
+        const { loggedIn } = this.props;
         return(
             <div className="logout">
-
-                {this.renderAuthButtons()}
+                { this.props.loggedIn ?
+                    this.renderAuthButtons() : null}
             </div>
         )
     }
@@ -49,8 +58,8 @@ export default withRouter(connect(
         state: state
     }),
     dispatch => ({
-        changeLoginStatus: () => {
-            dispatch(loginAction());
+        logoutUser: () => {
+            dispatch(logoutAction());
         }
     })
 )(Header));

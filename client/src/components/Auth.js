@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 class Signin extends Component {
 
     render() {
-        let {handleChange, handleSubmit, mode} = this.props;
+        let {handleChange, handleSubmit, mode, isLoading} = this.props;
+        console.log(isLoading)
         return(
             <div id="authContainer" className="primary-bg-color">
                 <div className="myContainer">
@@ -43,10 +44,10 @@ class Signin extends Component {
                                             <input type="password" onChange={handleChange} name="password" className="my-form-control" id="passwordInput" placeholder="Password" />
                                         </div>
                                         {mode && mode === 'login' &&
-                                            <button type="submit" className="my-button">Sign in</button>
+                                            <button type="submit" className="my-button" disabled={isLoading}>Sign in</button>
                                         }
                                         {mode && mode === 'register' &&
-                                            <button type="submit" className="my-button">Sign up</button>
+                                            <button type="submit" className="my-button" disabled={isLoading}>Sign up</button>
                                         }
                                     </form>
                                     <br />

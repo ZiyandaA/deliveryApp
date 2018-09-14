@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {
   Route,
 } from 'react-router-dom';
@@ -8,8 +7,6 @@ import {
 import './styles/Auth.css';
 import './styles/orders.css';
 
-import store from './store';
-import { loginAction } from './store/modules/auth'
 
 import Header from './containers/Header';
 import Register from './containers/Register';
@@ -32,15 +29,15 @@ class App extends Component {
       a) ComponentWillMount
       b) ComponentDidMount
   */
-  componentDidMount() {
-    axios.get('/check')
-        .then(data => {
-          store.dispatch(loginAction());
-        })
-        .catch(error => {
-          console.log(error.response)
-      });
-  };
+  // componentDidMount() {
+  //   axios.get('/check')
+  //       .then(data => {
+  //         store.dispatch(loginAction());
+  //       })
+  //       .catch(error => {
+  //         console.log(error.response)
+  //     });
+  // };
 
   
   render() {
@@ -49,8 +46,8 @@ class App extends Component {
         <Header />
         <Route exact path="/orders" component={OrdersComponent} />
         <Route exact path="/orders/:orderId" component={OrderComponent} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Register} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Register} />
         <Route exact path="/" component={Home} />
       </div>
     );

@@ -1,20 +1,30 @@
+import setAuthorizationToken from '../../helper/setAuthorizationToken';
+
 export const LOGIN_CHANGE  = 'LOGIN_CHANGE';
 
-export function loginAction() {
+export function loginAction(user) {
     return {
-        type: LOGIN_CHANGE
+        type: LOGIN_CHANGE,
+        user
     }
 }
 
+export const logoutAction = () => (dispatch) => {
+    setAuthorizationToken(false);
+    localStorage.removeItem('accessToken');
+    return dispatch(loginAction({}));
+};
+
 export function authReducer(state={
-    loggedIn: false
+    loggedIn: false,
+    user: {}
 }, action) {
-    console.log(state,action);
     switch (action.type) {
         case LOGIN_CHANGE: {
             return {
                 ...state,
-                loggedIn: !state.loggedIn
+                loggedIn: !state.loggedIn,
+                user: action.user
             }
         }
         default: return state;
