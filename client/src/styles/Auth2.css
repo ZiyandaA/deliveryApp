@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe|Poppins');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  font-size: 12px;
+  color: #0069B1;
+}
+
+.form-control:focus{
+  border-color: #003459;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.logo-text {
+  font-family: 'Mr Dafoe', 'Poppins', sans-serif;
+}
+
+.primary-bg-color {
+  background-color: #003459;
+}
+.secondary-bg-color {
+  background-color: #0069B1;
+}
+.white-bg-color {
+  background-color: #ffffff;
+}
+.btn-primary {
+  background-color: #003459;
+  border-color: #003459;
+  outline: none;
+}
+#authContainer{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.leftSide {
+  padding: 40px;
+}
+.rightSide {
+  background-color: #0069B1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image:
+        linear-gradient(rgba(2, 37, 59, 0.63), rgba(2, 37, 59, 0.63)),
+        url("../assets/delivery.jpeg");
+}
+
+.authenticationBox {
+  margin: auto;
+ 
+  box-shadow: 0px 2px 10px #383838;
+  width: 80%;
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .authenticationBox {
+    
+    box-shadow: 0px 2px 10px #383838;
+
+  }
+}

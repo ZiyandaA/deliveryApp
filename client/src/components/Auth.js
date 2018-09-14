@@ -1,99 +1,75 @@
+/* eslint no-unused-vars: 0 */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
-class Auth extends Component {
+class Signin extends Component {
 
     render() {
-        let {password, name, handleChange, handleSubmit, successMessage, label, mode} = this.props;
-
-        const labelStyles = {
-
-            display: 'inline-block',
-            color: 'white',
-            marginRight: 5,
-            padding: 5,
-            lineHeight: '25px',
-        }
-        const inputStyles = {
-            width: 150,
-            lineHeight: '25px'
-        }
-        const fieldStyles = {
-            marginBottom: 10,
-            marginLeft: 5,
-        }
+        let {handleChange, handleSubmit, mode, isLoading} = this.props;
+        console.log(isLoading)
         return(
-            <div style={{
-                background: '#0068b1',
-                textAlign: 'center'
-            }}>
-                <div style={{
-                    display: 'inline-block',
-                    width: '100%',
-                    maxWidth: 500,
-                }}>
-                    <img src={'/logo.png'}/>
-                    <div
-                        style={{
-                            color: 'lightblue',
-                            paddingBottom: 50,
-                            fontSize: 20,
-                        }}
-                    >
-                        Messenger Pricing System
+            <div id="authContainer" className="primary-bg-color">
+                <div className="myContainer">
+                    {mode && mode === 'login' &&
+                        <h4 className="">Sign In to Access Your Account</h4>
+                    }
+                    {mode && mode === 'register' &&
+                        <h4 className="">Sign Up and Join the Train</h4>
+                    }
+                    <br />
+                    <div className="authenticationBox">
+                        <div className="first-box white-bg-color">
+                            <div className="">
+                                <div className="leftSide">
+                                    {mode && mode === 'login' &&
+                                        <h5 className="title">SIGN IN</h5>
+                                    }
+                                    {mode && mode === 'register' &&
+                                        <h5 className="title">SIGN UP</h5>
+                                    }
+                                    <form
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleSubmit(mode)
+                                        }}
+                                    >
+                                        <div className="my-form-group">
+                                            <label htmlFor="usernameInput">Username</label>
+                                            <input   onChange={handleChange} name="name" type="text" className="my-form-control" id="usernameInput" placeholder="Enter username" />
+                                        </div>
+                                        <div className="my-form-group">
+                                            <label htmlFor="passwordInput">Password</label>
+                                            <input type="password" onChange={handleChange} name="password" className="my-form-control" id="passwordInput" placeholder="Password" />
+                                        </div>
+                                        {mode && mode === 'login' &&
+                                            <button type="submit" className="my-button" disabled={isLoading}>Sign in</button>
+                                        }
+                                        {mode && mode === 'register' &&
+                                            <button type="submit" className="my-button" disabled={isLoading}>Sign up</button>
+                                        }
+                                    </form>
+                                    <br />
+                                    {mode && mode === 'login' &&
+                                    <Link to="register" className="my-text-center" href="#"> Dont have an account ? Sign up</Link>
+                                    }
+                                    {mode && mode === 'register' &&
+                                    <Link to="login" className="my-text-center" href="#">Have an account ? Sign in</Link>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="secondary-bg-color rightSide">
+                            <h1 className="my-text-center my-text-white logo-text ">ARC</h1>
+                            <p className="my-text-center my-text-white">The Messenger Pricing System</p>
+                        </div>
                     </div>
                 </div>
-
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSubmit(mode)
-                }}>
-                    <div style={fieldStyles} >
-                        <div
-                            style={labelStyles}
-                        >
-                            Username
-                        </div>
-                        <input
-                            style={inputStyles}
-                            value={name}
-                            name="name"
-                            onChange={handleChange}
-                            type="text"
-                            placeholder="name"
-                            required
-                        />
-                    </div>
-
-                    <div style={fieldStyles}>
-                        <div
-                        style={labelStyles}
-                        >
-                            Password
-                        </div>
-                        <input
-                            style={inputStyles}
-                            value={password}
-                            name="password"
-                            onChange={handleChange}
-                            type="password"
-                            placeholder="password"
-                            required
-                        />
-                    </div>
-
-
-                    <button type="submit">
-                        { mode === "register" ? "Register" : "Log In"}
-                    </button>
-
-                </form>
-                {successMessage}
             </div>
         )
     }
 }
 
-export default Auth;
+export default Signin;
 // onClick={handleSubmit}

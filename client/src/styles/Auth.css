@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe|Poppins');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  font-size: 12px;
+  color: #0069B1;
+  text-decoration: none
+}
+
+input {
+  margin: 0;
+  font-family: inherit;
+}
+
+.my-form-group {
+  margin-bottom: 1rem;
+}
+
+.my-form-control:focus-within{
+  border-color: #80bdfe;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  outline: #003459
+}
+
+.logo-text {
+  font-family: 'Mr Dafoe', 'Poppins', sans-serif;
+}
+
+.my-text-white {
+  color: #ffffff
+}
+
+
+.primary-bg-color {
+  background-color: #003459;
+}
+.secondary-bg-color {
+  background-color: #0069B1;
+}
+.white-bg-color {
+  background-color: #ffffff;
+}
+.btn-primary {
+  background-color: #003459;
+  border-color: #003459;
+  outline: none;
+}
+
+.my-text-center {
+  text-align: center !important;
+}
+
+.my-form-control {
+  display: block;
+  width: 95%;
+  height: calc(1.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#authContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+#authContainer .myContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+}
+
+#authContainer .myContainer > h4 {
+  color: white;
+  text-align: center;
+}
+
+
+.leftSide {
+  padding: 40px;
+}
+.rightSide {
+  display: none;
+  background-color: #0069B1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image:
+        linear-gradient(rgba(2, 37, 59, 0.63), rgba(2, 37, 59, 0.63)),
+        url("../assets/delivery.jpeg");
+}
+
+#authContainer .authenticationBox {
+  display: flex;
+  margin: auto;
+  
+  box-shadow: 0px 2px 10px #383838;
+  width: 80%;
+}
+
+#authContainer .authenticationBox .title {
+  text-align: center !important;
+}
+
+#authContainer .authenticationBox .first-box {
+  margin: auto;
+}
+
+.my-button {
+  background-color: #003459;
+  border-color: #003459;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  
+}
+
+.my-button:focus,
+.my-button:hover {
+  background-color: #0069B1;
+  border: #0069B1;
+}
+
+.logout {
+  margin: 20px;
+  height: 26px;
+}
+
+@media (min-width: 720px) {
+  #authContainer .authenticationBox {
+    margin: auto;
+    
+    box-shadow: 0px 2px 10px #383838;
+  }
+
+  .my-form-control {
+    width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .first-box {
+    flex-basis: 40%;
+  }
+
+  .rightSide {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+  }
+}
+
+@media (min-width: 1024px) {
+  .first-box {
+    flex-basis: 30%;
+  }
+
+  .rightSide {
+    flex-basis: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+  }
+}

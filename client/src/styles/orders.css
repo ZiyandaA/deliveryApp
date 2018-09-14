@@ -1,0 +1,137 @@
+#order-page {
+  height: 100vh !important
+}
+
+#orders-page {
+  height: 100vh !important;
+}
+
+.order-container,
+.orders-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0 0px
+}
+
+.order-container .my-container,
+.orders-container .my-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.order-container .my-container .new-order,
+.orders-container .my-container .new-order {
+  align-self: flex-end;
+  padding: 0 10px;
+}
+
+.order-list {
+  align-self: flex-end;
+  padding: 0 0px;
+}
+
+.order-btn-list {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.order-btn-list button {
+  margin-bottom: 5px;
+}
+
+.leftSide .review-order-title {
+  font-size: 20px !important;
+  margin: 10px;
+}
+
+.leftSide th h5 {
+  font-size: 20px !important;
+  margin: 0px !important;
+}
+
+.order-container .confirm-order {
+  width: 100%;
+}
+
+h4 {
+  font-size: 25px !important;
+  margin: 20px 0 !important;
+}
+
+.order-list-table {
+  max-height: 100vh;
+  overflow: scroll
+}
+
+@media (min-width: 768px) {
+  .try {
+    height: 100vh !important;
+  }
+  .order-container {
+    padding: 0px;
+  }
+
+  .order-middleBox {
+    display: flex;
+    height: 90vh;
+  }
+
+  .order-middleBox .left-box {
+    height: 100%;
+    overflow: scroll;
+  }
+
+  .leftSide .review-order-title {
+    font-size: 25px !important;
+  }
+
+  .leftSide th h5 {
+    font-size: 25px !important;
+    margin: 0px !important;
+  }
+
+  h4 {
+    font-size: 30px !important;
+    margin: 20px 0 !important;
+  }
+
+  .order-btn-list {
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center
+  }
+
+  .order-page .left-box-inner .leftSide {
+    height: 100%;
+    overflow: scroll
+  }
+
+  .res-order {
+    /* padding: 0 20px; */
+    width: 90% !important;
+    margin: auto;
+    
+  }
+
+  #orders-page .orders-container {
+    width: 80%;
+    /* margin: 0 200px; */
+    border: 1px solid pink
+  }
+
+  .order-container .my-container .new-order,
+  .orders-container .my-container .new-order {
+  float: right;
+  margin: 10px;
+  padding: 0 10px;
+}
+}
+
+@media (min-width: 1024px) {
+
+}

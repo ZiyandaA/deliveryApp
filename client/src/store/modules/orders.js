@@ -12,7 +12,7 @@ const FETCH_ORDERS = 'orders/FETCH';
 export const createOrderAction = (order) => {
     return asyncAction(
         CREATE_ORDER,
-        axios.post("/orders", { order }),
+        axios.post("http://localhost:3000/orders", { order }),
     )
 };
 
@@ -56,6 +56,7 @@ export const confirmOrderAction = (email, id) => asyncAction(
     },
     err => alert(err.message)
 );
+
 
 export function ordersReducer(state= {
     detail: {},

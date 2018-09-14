@@ -1,0 +1,36 @@
+
+#middleContainer{
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#middleContainer .leftSide {
+  padding: 40px;
+
+}
+#middleContainer .rightSide {
+  background-color: #0069B1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image:
+        linear-gradient(rgba(2, 37, 59, 0.63), rgba(2, 37, 59, 0.63)),
+        url("../assets/delivery.jpeg");
+}
+
+#middleContainer .scrollable-content {
+  height: 60vh;
+  overflow: scroll;
+}
+
+#middleContainer .middleBox {
+  margin: auto;
+  box-shadow: 0px 2px 10px #383838;
+  width: 80%;
+}
+
+@media (min-width:320px) and (max-width:720px) {
+  #middleContainer .middleBox {
+    margin: auto;
+    box-shadow: 0px 2px 10px #383838;
+  }
+}

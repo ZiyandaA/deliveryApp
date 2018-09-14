@@ -1,0 +1,188 @@
+
+#middleContainer{
+  /* min-height: 100vh; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: auto;
+  display: flex;
+}
+
+#middleContainer .rightSide {
+  background-color: #0069B1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image:
+        linear-gradient(rgba(2, 37, 59, 0.63), rgba(2, 37, 59, 0.63)),
+        url("../assets/delivery.jpeg");
+}
+
+#middleContainer .scrollable-content {
+  height: 60vh;
+  overflow: scroll;
+}
+
+#middleContainer .first-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  padding: 0;
+}
+
+#middleContainer .middleBox {
+  margin: auto;
+  box-shadow: 0px 2px 10px #383838;
+  width: 100%;
+  display: flex;
+}
+
+#middleContainer .middleBox .left-box,
+.left-box-inner {
+  flex-basis: 100%;
+  display: flex;
+  width: 100%;
+  
+}
+
+.left-box-inner .leftSide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.the-right {
+  
+}
+
+
+
+.first-container .left-box-inner .leftSide {
+  padding: 10px 0;
+}
+
+.my-form-group.select {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-form-group.select > label {
+  margin: 0;
+}
+
+.my-form-group.select > select {
+  border: 1px solid #ced4da;
+  flex-basis: 50%;
+  padding: 0 10px;
+  margin: 0 10px;
+  height: 35px;
+  color: #495057
+}
+
+td select:focus-within,
+.my-form-group.select > select:focus-within,
+.my-form-group.select > select:hover {
+  border-color: #003459;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  outline: #003459
+}
+
+.my-form-group .store-location {
+  display: flex;
+  justify-content: space-around;
+}
+
+.store-location .location-img {
+  height: 100px;
+}
+
+.from-button {
+  display: flex;
+  align-items: center
+}
+
+.fill-form {
+  font-weight: 600;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px
+
+}
+
+.my-responsive-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+.my-responsive-table .table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+  display: table;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+.my-responsive-table .table thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.table thead th {
+  text-align: left;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6
+}
+
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.my-responsive-table .table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+td select {
+  height: 35px;
+  width: 100%;
+  border: 1px solid #ced4d9;
+}
+
+.my-form-control.quantity {
+  width: 85%;
+}
+
+.home {
+  margin-top: -10px
+}
+
+@media (min-width:720px) {
+  #middleContainer .middleBox {
+    margin: auto;
+    box-shadow: 0px 2px 10px #383838;
+  }
+
+  .left-box {
+    flex-basis: 80%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .store-location {
+    width: 50%;
+    margin: auto;
+  }
+}

@@ -4,7 +4,9 @@ import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { loginAction } from '../store/modules/auth'
 import axios from 'axios';
+import toast from 'toastr';
 import AuthComponent from '../components/Auth';
+import setAuthorizationToken from '../helper/setAuthorizationToken';
 
 class Register extends Component {
     constructor(props) {
@@ -13,7 +15,8 @@ class Register extends Component {
             name: '',
             password: '',
             open: false,
-            successMessage: ""
+            successMessage: "",
+            isLoading: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +43,8 @@ class Register extends Component {
     */
     handleSubmit(authMode) {
         console.log(authMode);
-        let url = "http://localhost:3001/users/";
+        this.setState({ isLoading: true });
+        let url = "http://localhost:3000/users/";
         if(authMode === "login") {
             url += "signin"
         }else if(authMode === "register") {
@@ -52,18 +56,26 @@ class Register extends Component {
             name,
             password,
         })
-            .then(data => {
-                this.props.changeLoginStatus();
+            .then(response => {
+                this.setState({ isLoading: false });
+                const { user, token, message } = response.data;
+                console.log(message)
+                localStorage.setItem('accessToken', token);
+                setAuthorizationToken(token);
+                this.props.changeLoginStatus(user);
+                toast.success(message);
             })
             .catch(err => {
-                console.log(err.response);
+                this.setState({ isLoading: false });
+                const { message } = err.response.data;
+                toast.error(message);
                 // alert(err.response.data.message);
             })
     }
 
 
     render() {
-        let {name, password} = this.state;
+        let {name, password, isLoading} = this.state;
         const { pathname } = this.props.location;
         let authMode;
 
@@ -74,7 +86,8 @@ class Register extends Component {
         }
 
         if(this.props.loggedIn) {
-            const { referrer } =this.props.location.state;
+            console.log(this.props.location);
+            const  referrer  = (this.props.location.state) ? this.props.location.state.referrer : false;
             const from = referrer ? referrer : '/';
             return <Redirect to={from} />
         }
@@ -88,7 +101,7 @@ class Register extends Component {
                 handleSubmit={this.handleSubmit}
                 label={this.props.label}
                 successMessage={this.state.successMessage}
-
+                isLoading={isLoading}
             />
         )
     }
@@ -100,8 +113,8 @@ export default withRouter(connect(
         state: state
     }),
     dispatch => ({
-        changeLoginStatus: () => {
-            dispatch(loginAction());
+        changeLoginStatus: (user) => {
+            dispatch(loginAction(user));
         }
     })
 )(Register));
